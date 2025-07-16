@@ -19,9 +19,15 @@ public class Coin : MonoBehaviour
     [SerializeField]
     private float _secondsToDisappear = 2f;
     private Coroutine _appearCoroutine;
+    private Collider _collider;
+    private void Awake()
+    {
+        _collider = GetComponent<Collider>();
+    }
     private void OnEnable()
     {
         _appearCoroutine = StartCoroutine(Appear());
+        _collider.enabled = true;
     }
     private IEnumerator Appear()
     {
@@ -31,6 +37,7 @@ public class Coin : MonoBehaviour
     }
     public void Collect()
     {
+        _collider.enabled = false;
         Stop();
         StartCoroutine(Disappear());
     }
@@ -46,6 +53,10 @@ public class Coin : MonoBehaviour
         {
             StopCoroutine(_appearCoroutine);
             _appearCoroutine = null;
-        }  
+        }
+    }
+    private void OnDisable()
+    {
+        StopAllCoroutines();    
     }
 }
