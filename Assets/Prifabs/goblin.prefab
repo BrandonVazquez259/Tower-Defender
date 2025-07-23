@@ -566,6 +566,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: goblin
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0d118f4dbbc385f4b80d5656c706454b, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -582,6 +586,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0d118f4dbbc385f4b80d5656c706454b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5382465598466736232}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0d118f4dbbc385f4b80d5656c706454b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3635973989184478142}
   m_SourcePrefab: {fileID: 100100000, guid: 0d118f4dbbc385f4b80d5656c706454b, type: 3}
 --- !u!1 &3864905930627272407 stripped
 GameObject:
@@ -629,7 +636,19 @@ MonoBehaviour:
       m_Calls: []
   _onDie:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5382465598466736232}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5382465598466736232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -645,6 +664,42 @@ MonoBehaviour:
   _animator: {fileID: 7134906185485689047}
   _enemyData: {fileID: 11400000, guid: 8d6b4f1edd282a64b92a8b32588ece7e, type: 2}
   _targetTag: Tower
+  _onInitialized:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2701048148881431416}
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
+        m_MethodName: InitializeHealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &3635973989184478142
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3864905930627272407}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.48, y: 2.29, z: 0.94}
+  m_Center: {x: 0, y: 1.03, z: -0.08}
 --- !u!4 &8266749742020097273 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5465940246521907071, guid: 0d118f4dbbc385f4b80d5656c706454b, type: 3}
