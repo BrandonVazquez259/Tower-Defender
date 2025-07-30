@@ -5,7 +5,7 @@ public class Gun : MonoBehaviour
 {
     [SerializeField]
     private GunData _gunData;
-    
+
     private GameObject _shootParticles;
     [SerializeField]
     private Transform _turrent;
@@ -50,6 +50,11 @@ public class Gun : MonoBehaviour
         {
             _turrent.LookAt(_target.Target);
         }
-        
-    } 
+
+    }
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+        _target = null;
+    }
 }

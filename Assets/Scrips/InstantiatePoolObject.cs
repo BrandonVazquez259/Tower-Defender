@@ -1,33 +1,40 @@
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.UIElements;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class InstantiatePoolObject : MonoBehaviour
 {
     [SerializeField]
     private GameObject _prefab;
     [SerializeField]
     private Transform _parent;
     private List<GameObject> _pool = new();
+    private GameObject _currentObject;
     public void InstantiateObject(Transform target)
     {
-        GameObject obj = GetPooledObject();
-        if (obj != null)
+        _currentObject = GetPooledObject();
+
+        if (_currentObject != null)
         {
-            PositionObject(obj, target.position, target.rotation);
+            PositionObject(_currentObject, target.position, target.rotation);
         }
 
 
     }
     public void InstantiateObject(Vector3 position)
     {
-        GameObject obj = GetPooledObject();
-        if (obj != null)
+        _currentObject = GetPooledObject();
+        if (_currentObject != null)
         {
-            PositionObject(obj, position, Quaternion.identity);
+            PositionObject(_currentObject, position, Quaternion.identity);
 
         }
+    }
+    public GameObject GetCurrentObject()
+    {
+        return _currentObject;
     }
     private void PositionObject(GameObject obj, Vector3 position, Quaternion rotation)
     {
