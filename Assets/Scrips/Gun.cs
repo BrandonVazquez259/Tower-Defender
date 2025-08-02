@@ -5,10 +5,9 @@ public class Gun : MonoBehaviour
 {
     [SerializeField]
     private GunData _gunData;
-
     private GameObject _shootParticles;
     [SerializeField]
-    private Transform _turrent;
+    private Transform _turret;
     private EnemyTarget _target;
     private void OnTriggerStay(Collider other)
     {
@@ -16,7 +15,6 @@ public class Gun : MonoBehaviour
         {
             _target = new EnemyTarget(other.transform, health);
             StartCoroutine(Shoot());
-
         }
     }
     private IEnumerator Shoot()
@@ -35,7 +33,6 @@ public class Gun : MonoBehaviour
         if (_shootParticles == null)
         {
             _shootParticles = Instantiate(_gunData.shootParticlesPrefab, target.position, Quaternion.identity);
-
         }
         else
         {
@@ -48,9 +45,8 @@ public class Gun : MonoBehaviour
     {
         if (_target != null)
         {
-            _turrent.LookAt(_target.Target);
+            _turret.LookAt(_target.Target);
         }
-
     }
     private void OnDisable()
     {
