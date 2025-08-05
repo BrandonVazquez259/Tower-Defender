@@ -3,7 +3,12 @@ guid: b57d9a0e8ee17d046a9f5dd11eebb271
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "Rob\xF5"
+    second: {fileID: 2100000, guid: c8bbacf5d912e5c4e85df3960d59efa2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
